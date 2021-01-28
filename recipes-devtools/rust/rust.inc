@@ -287,6 +287,7 @@ def llvm_cpu(d):
     trans['corei7-64'] = "corei7"
     trans['core2-32'] = "core2"
     trans['x86-64'] = "x86-64"
+    trans['x86_64'] = "x86-64"
     trans['i686'] = "i686"
     trans['i586'] = "i586"
     trans['powerpc'] = "powerpc"
