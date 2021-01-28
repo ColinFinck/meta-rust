@@ -11,8 +11,9 @@ PROVIDES_class-native = "virtual/${TARGET_PREFIX}rust"
 
 # The default behaviour of x.py changed in 1.47+ so now we need to
 # explicitly ask for the stage 2 compiler to be assembled.
+# The compiler also moved from src/rustc to compiler/rustc in 1.48+.
 do_compile () {
-    rust_runx build --stage 2 src/rustc
+    rust_runx build --stage 2 compiler/rustc
 }
 
 BBCLASSEXTEND = "native"
