@@ -361,6 +361,13 @@ def rust_gen_target(d, thing, wd, features, cpu):
     tspec['position-independent-executables'] = True
     tspec['panic-strategy'] = d.getVar("RUST_PANIC_STRATEGY")
 
+    # Target options have accidentally been renamed in 1.49.0 (https://github.com/rust-lang/rust/commit/dc004d4809f7e5fb5ea73ac630a0b1bdb58eabe4).
+    # This is fixed in all future versions (https://github.com/rust-lang/rust/commit/dd682cb48c8b667859dded98a4bbfbd891a1eca4)
+    # and can be removed once meta-rust removes support for 1.49.0.
+    tspec['target_c_int_width'] = tspec['target-c-int-width']
+    tspec['target_endian'] = tspec['target-endian']
+    tspec['target_family'] = tspec['target-family']
+
     # Don't use jemalloc as it doesn't work for many targets.
     # https://github.com/rust-lang/rust/pull/37392
     # From 1.20.0 and forward, system allocator is the default.
